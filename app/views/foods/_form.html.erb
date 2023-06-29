@@ -17,8 +17,8 @@
   </div>
 
   <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
+   <%= form.label :measurement_unit, style: "display: block" %>
+   <%= form.select :measurement_unit, ['grams (g)', 'kilograms (kg)', 'pounds (lb)', 'ounces (oz)', 'litres (L)', 'millilitres (mL)'] %>
   </div>
 
   <div>

@@ -1,0 +1,38 @@
+<% if user_signed_in? %>
+
+<section class="shopping-list">
+
+  <h1 class="flex-center">Shopping List</h1>
+
+  <div class="header-details">
+    <p>Amount of food items to buy: <%= @total_missing_count %> </p>
+    <p>Total value of food: $<%= @total_missing_price %> </p>
+  </div>
+
+  <div class="">
+    <table>
+      <thead>
+          <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          </tr>
+      </thead>
+      <tbody>
+      <%@missing_foods.each do |food_item|%>
+        <tr>
+          <td><%=food_item.food.name%></td>
+          <td><%= food_item.quantity - food_item.food.quantity %> <%= food_item.food.measurement_unit%></td>
+          <td>$ <%=food_item.food.price * (food_item.quantity - food_item.food.quantity) %></td>
+        </tr>
+      <%end%>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="back-to-recipe">
+  <%= link_to "Back to recipes", recipes_path %>
+  </div>
+
+  </section>
+<% end %>

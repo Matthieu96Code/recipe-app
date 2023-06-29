@@ -1,6 +1,6 @@
-<%= form_with(model: recipe_food) do |form| %>
+<%= form_with(model: @recipe_food, url: recipe_recipe_foods_path(@recipe)) do |form| %>
   <% if recipe_food.errors.any? %>
-    <div style="color: red">
+    <div class="error-messages">
       <h2><%= pluralize(recipe_food.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
 
       <ul>
@@ -11,22 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
+  <div class="form-row">
+    <%= form.label :quantity %>
     <%= form.number_field :quantity %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <div class="form-row">
+    <%= form.label :food_id %>
+    <%= form.select :food_id, options_for_select(@food.collect{ |f| [f.name, f.id] }) %>
   </div>
 
-  <div>
-    <%= form.label :food_id, style: "display: block" %>
-    <%= form.text_field :food_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="form-row">
+    <%= form.submit "Add ingredient", class: "button-primary" %>
   </div>
 <% end %>

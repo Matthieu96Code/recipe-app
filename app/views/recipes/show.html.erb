@@ -1,10 +1,57 @@
-<p style="color: green"><%= notice %></p>
+<div id="recipe-details">
+  
+    <h1><%= @recipe.name %></h1>
+   
+  
+  <div class="recipe-box">
+  <div class="recipe-details">
+    <div class="recipe-detail">
+      <p>Preparation time: <%= @recipe.preparation_time %> min</p>
+    </div>
+    <div class="recipe-detail">
+      <p>Cooking time: <%= @recipe.cooking_time %> min</p>
+    </div>
+    <div class="recipe-detail">
+      <p>Steps: <%= @recipe.description %></p>
+    </div>
+  </div>
+   <% if can? :update, @recipe %>
+<%= button_to(@recipe.public? ? "Make Private" : "Make Public", toggle_recipe_privacy_path(@recipe), method: :put, class: "update-recipe") %>
+    <% end %>
+    </div>
 
-<%= render @recipe %>
+  <div class="recipe-actions">
+    <%= button_to(@recipe.shopping_tag? ? "Remove shopping list" : "Generate shopping list", toggle_shopping_tag_path(@recipe), method: :put, class: "update-recipe") %>
+    
+    <% if can? :create, @recipe %>
+      <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), class: "add-ingredient" %>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
-
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+    <% end %>
+  </div>
 </div>
+
+  
+<div id="shopping_table">
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @food_recipe.each do |recipe_food| %>
+        <tr id="<%= dom_id recipe_food %>">
+          <td><%= recipe_food.food.name %></td>
+          <td><%= recipe_food.quantity %></td>
+          <td><%= recipe_food.food.price * recipe_food.quantity %></td>
+          <td><%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+

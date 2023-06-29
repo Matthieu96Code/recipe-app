@@ -1,0 +1,25 @@
+<div class="container">
+  <% if notice.present? %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+
+  <h1>Public Recipes</h1>
+
+  <div id="recipes">
+    <% if @recipes %>
+  <% @recipes.each do |recipe| %>
+   <div id="recipe">
+  <div>
+    <p>
+      <%= link_to recipe.name , recipe %>
+    </p>
+      <p class="public-res-user">By: <%= recipe.user.name %></p>
+  </div>
+  <div class="public-resipe-div">
+  <p><strong>Total food items:</strong> <%= recipe.recipe_foods.count %></p>
+  <p><strong>Total price:</strong> $<%= recipe.recipe_foods.sum { |rf| rf.food.price * rf.quantity } %></p>
+  </div>
+</div>
+<% end %>
+</div>
+<% end %>
