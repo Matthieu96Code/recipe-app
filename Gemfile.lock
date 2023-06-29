@@ -162,6 +162,7 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
+    pg (1.5.3-x64-mingw-ucrt)
     public_suffix (5.0.1)
     puma (5.6.6)
       nio4r (~> 2.0)
@@ -329,6 +330,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   letter_opener
+  pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.5)
