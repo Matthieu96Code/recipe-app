@@ -13,3 +13,133 @@
  *= require_tree .
  *= require_self
  */
+:root {
+  --primary: #181823;
+  --secondary: #c0eef2;
+  --tertiary: #537fe7;
+  --border-radius: 5px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: inherit;
+}
+
+.nav-bar {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 1rem;
+}
+
+.nav-item {
+  margin-right: 1rem;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  margin: 0 auto;
+  padding: 0 10%;
+}
+
+section {
+  margin-top: 60px;
+}
+
+.form {
+  border: 1px solid var(--secondary);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 20px 0;
+  max-width: 300px;
+}
+
+form {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  min-height: 20px;
+}
+
+input[type='checkbox'] {
+  width: auto;
+  height: auto;
+}
+
+.new-food-link {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.new-food-link > a {
+  padding: 10px 20px;
+  background-color: var(--secondary);
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.new-food-link > a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 70%;
+  color: var(--tertiary);
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: var(--secondary);
+  color: white;
+}
+
+tr:nth-child(odd) {
+  background-color: var(--primary);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  min-height: 70px;
+  padding: 15px;
+  text-align: center;
+}
