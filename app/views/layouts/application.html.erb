@@ -11,6 +11,17 @@
   </head>
 
   <body>
+    <%= render 'layouts/nav' %>
+
+    <p class="notice flex-center"><%= notice %></p>
+    <p class="alert flex-center"><%= alert %></p>
+
+    <main id = "main-section">
     <%= yield %>
+    </main>
+
+    <footer id = "footer">
+         <p>Created by Mudasir & Mathew &copy; <%= Time.now.year %> </p>
+    </footer>
   </body>
 </html>
