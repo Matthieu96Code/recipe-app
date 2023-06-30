@@ -1,0 +1,61 @@
+/* General */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #212529;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nav-bar {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  height: 4rem;
+}
+
+.nav-bar .profil {
+  flex-grow: 3;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-bar .nav-link {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profil h2 {
+  padding-left: 4rem;
+}
+
+.nav-bar .log {
+  flex-grow: 2;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-bar li {
+  display: flex;
+}
