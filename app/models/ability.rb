@@ -10,7 +10,17 @@ class Ability
     #   can :read, :all
     #   return unless user.admin?
     #   can :manage, :all
-    #
+
+    user ||= User.new # random user
+
+    # check if user role is admin and give admin management rights
+    if user.admin?
+      can :manage, :all
+    else
+      can :read, :all
+      can :manage, Recipe, user_id: user.id
+      can :manage, RecipeFood, user_id: user.id
+
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
