@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :recipe_foods
   end
   resources :users
+  resources :public_recipes, only: [:index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   put '/recipes/:id/toggle_public', to: 'recipes#toggle_public', as: 'toggle_recipe_public'
