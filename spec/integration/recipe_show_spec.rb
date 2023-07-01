@@ -9,10 +9,11 @@ RSpec.describe 'Recipe', type: :feature do
         .to receive(:current_user)
         .and_return(@user)
       @recipe = Recipe.create(
-        user: @user, name: 'Recipe 1', 
+        user: @user, name: 'Recipe 1',
         preparation_time: 7, cooking_time: 23,
-        description: 'Description 01')
-      
+        description: 'Description 01'
+      )
+
       visit new_user_session_path
       fill_in 'Email', with: @user.email
       fill_in 'Password', with: @user.password
@@ -29,7 +30,6 @@ RSpec.describe 'Recipe', type: :feature do
       expect(page).to have_content('Description 01')
     end
     it 'click on a toggle btn.' do
-
       visit recipe_path(@recipe)
       click_button 'Make Public'
       expect(page).to have_content('Make Private')

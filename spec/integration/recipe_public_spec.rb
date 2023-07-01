@@ -5,13 +5,14 @@ RSpec.describe 'User index page', type: :feature do
     before do
       @user = User.create!(name: 'user1', email: 'user01@email.com', password: 'password01')
       @recipe = Recipe.create!(
-        user_id: @user.id, name: 'Recipe 1', 
+        user_id: @user.id, name: 'Recipe 1',
         preparation_time: 20, cooking_time: 40,
-        description: 'Recipe description', public: true)
+        description: 'Recipe description', public: true
+      )
 
-      @recipe = Recipe.create!(user_id: @user.id, name: 'New private recipe', 
-        preparation_time: 20, cooking_time: 40,
-        description: 'Recipe description', public: false)
+      @recipe = Recipe.create!(user_id: @user.id, name: 'New private recipe',
+                               preparation_time: 20, cooking_time: 40,
+                               description: 'Recipe description', public: false)
 
       visit new_user_session_path
       fill_in 'Email', with: @user.email
