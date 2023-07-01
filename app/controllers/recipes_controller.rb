@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
-
+  load_and_authorize_resource
+  
   # GET /recipes or /recipes.json
   def index
     @recipes = Recipe.includes([:user]).where(user: current_user)
@@ -21,15 +22,15 @@ class RecipesController < ApplicationController
   # GET /recipes/1/edit
   def edit; end
 
-  def toggle_privacy
+  def toggle_public
     @recipe = Recipe.find(params[:id])
-    @recipe.toggle_privacy!
+    @recipe.toggle_public!
     redirect_to recipe_path(@recipe)
   end
 
-  def toggle_shopping_tag
+  def add_to_shopping
     @recipe = Recipe.find(params[:id])
-    @recipe.toggle_shopping_tag!
+    @recipe.add_to_shopping!
     redirect_to recipe_path(@recipe)
   end
 

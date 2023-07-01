@@ -8,11 +8,11 @@ class Recipe < ApplicationRecord
 
   scope :public_recipes, -> { where(public: true).order(created_at: :desc) }
 
-  def toggle_privacy!
+  def toggle_public!
     update(public: !public)
   end
 
-  def toggle_shopping_tag!
+  def add_to_shopping!
     update(shopping_tag: !shopping_tag)
   end
 end
