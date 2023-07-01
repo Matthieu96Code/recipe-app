@@ -1,0 +1,38 @@
+<ul class="nav-bar">
+  <% if user_signed_in? %>
+  <li class="nav-item profil">
+    <h2>
+      <%= "#{current_user.name}" %>
+    </h2>
+  </li>
+  <% else %>
+  <li class="nav-item profil">
+    <h2>
+    Recipe App
+    </h2>
+  </li>
+  <% end %>
+
+  </li>
+  <li class="nav-item nav-link">
+    <%= link_to 'Food List', foods_path, class: "nav-link" %> 
+  </li>
+  <li class="nav-item nav-link">
+    <%= link_to 'Recipe List', recipes_path, class: "nav-link" %> 
+  </li>
+  <li class="nav-item nav-link">
+    <%= link_to 'Public Recipe List', public_recipes_path, class: "nav-link" %> 
+  </li>
+  <li class="nav-item nav-link">
+    <%= link_to 'General Shopping List', recipes_path, class: "nav-link" %> 
+  </li>
+  <% if user_signed_in? %>
+    <li class="nav-item log">
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+    </li>
+    <% else %>
+    <li class="nav-item log">
+      <%= link_to "Log in", new_session_path(resource_name), class: "nav-link" %>
+    </li>
+    <% end %>
+</ul>
