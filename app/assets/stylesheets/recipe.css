@@ -16,3 +16,39 @@
 #recipe div p {
   margin-bottom: 1rem;
 }
+
+.recipe-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe-detail {
+  margin: 3rem 0;
+}
+
+#shopping_table {
+  margin: 2rem 0;
+}
+
+table {
+  width: 100%;
+  border: 2px solid black;
+}
+
+table thead,
+table tbody {
+  width: 100%;
+}
+
+table thead tr,
+table tbody tr {
+  width: 100%;
+  display: flex;
+}
+
+table thead tr th,
+table tbody tr td {
+  flex-grow: 1;
+  text-align: left;
+  padding-left: 1rem;
+}
